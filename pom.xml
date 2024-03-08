@@ -5,11 +5,7 @@
     <groupId>works.buddy.samples</groupId>
     <artifactId>works-with-heroku</artifactId>
     <version>1.8</version>
-    <packaging>war</packaging>
-    <properties>
-    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>	
+    <packaging>war</packaging>	
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -42,14 +38,13 @@
                         <phase>package</phase>
                         <goals><goal>copy</goal></goals>
                         <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.eclipse.jetty</groupId>
-                                    <artifactId>jetty-runner</artifactId>
-                                    <version>9.3.3.v20150827</version>
-                                    <destFileName>jetty-runner.jar</destFileName>
-                                </artifactItem>
-                            </artifactItems>
+                            <!-- Configuration needed to avoid build errors-->
+				<compilerArgs>
+					<args>-parameters</args>
+				</compilerArgs>
+				<source>1.8</source>
+				<target>1.8</target>
+				<!-- Configuration needed to avoid build errors-->
                         </configuration>
                     </execution>
                 </executions>
